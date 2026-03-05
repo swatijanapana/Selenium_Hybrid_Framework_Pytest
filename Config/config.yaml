@@ -1,0 +1,17 @@
+BROWSERS:
+  - chrome
+  - firefox
+  - edge
+
+
+BASE_URL: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+
+CREDENTIALS:
+    USERNAME : "Admin"
+    PASSWORD : "admin123"
+
+TIMEOUTS:
+  implicit_wait: 10
+  explicit_wait: 20
+
+DATABASE CONNECTION :

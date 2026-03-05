@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Pytest cache
+.pytest_cache/
+
+# Reports
+Reports/
+
+# Logs
+Logs/
+
+# Allure reports
+allure-results/
+allure-report/
+
+# Mac files
+.DS_Store
