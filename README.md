@@ -42,6 +42,27 @@ A scalable UI automation framework built using Python, Selenium, and Pytest foll
 	•	Clean project structure
 	•	Pytest fixtures and parametrization
 
+## Framework Architecture
+```
+Tests (Pytest)
+│
+▼
+Page Objects (POM)
+│
+▼
+Utilities / Helpers
+│
+├── Excel Reader
+├── Config Reader
+└── Logger
+│
+▼
+Selenium WebDriver
+│
+▼
+Browser (Chrome / Firefox / Edge)
+```
+
 ## 📂 Project Structure
 
 ```
