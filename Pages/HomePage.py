@@ -1,6 +1,8 @@
 from selenium.webdriver.common.by import By
 from Pages.BasePage import BasePage
 from Pages.AdminPage import AdminPage
+from Pages.MyInfoPage import MyInfoPage
+
 
 class HomePage(BasePage):
 
@@ -21,52 +23,51 @@ class HomePage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    """ Page Actions for Home Page """
+    """ Page Actions for Dashboard Home Page """
 
-    """ Used to get the page title"""
+    """ Returns the home page title. """
     def get_home_page_title(self,title):
         return self.get_title(title)
 
-    """" Used to get the page header"""
+    """" Returns home page header. """
 
     def get_header_value(self):
        return self.get_element_text(self.Page_header)
 
-    """ Used to check the page logo"""
+    """ Verify page logo exist or not. """
 
     def is_logo_exist(self):
       return self.is_visible(self.HomePage_logo)
 
-    """ Used to check the profile picture exist"""
+    """ Verify profile picture exist or not. """
 
     def is_profile_picture_exist(self):
       return self.is_visible(self.Profile_icon)
 
-    """ Used to check the logout button exist"""
-
+    """ Verify logout button visible or not"""
     def is_logout_button_exist(self, ):
        return self.is_visible(self.Logout_button)
 
-    """ Used to check the menu_list visible"""
+    """ Verify menu_list. """
     def is_menu_list_exist(self):
         return self.is_visible(self.Menu_list)
 
-    """ Used to get the menu_list text"""
+    """ Returns the  menu_list text. """
     def get_menu_items_text(self):
         elements = self.driver.find_elements(By.CSS_SELECTOR,"ul.oxd-main-menu span")
         return [element.text for element in elements]
 
-    """ Used to check the admin_link is  clickable"""
+    """ Verify admin_link is clickable or not. """
     def click_admin_menu(self):
         self.do_click(self.Admin_menu)
         return AdminPage(self.driver)
 
-
-    """ Used to check the myinfo_link is  clickable"""
+    """ Verify myinfo_link is  clickable or not. """
     def click_myinfo_menu(self):
-        return self.do_click(self.MyInfo_menu)
+        self.do_click(self.MyInfo_menu)
+        return MyInfoPage(self.driver)
 
-    """ Used to check the log out the website"""
+    """Log out from the application. """
     def do_logout(self):
         self.do_click(self.Profile_dropdown)
         self.do_click(self.Logout_button)

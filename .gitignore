@@ -9,14 +9,18 @@ __pycache__/
 .pytest_cache/
 
 # Reports
-Reports/
+Reports/html_Report/*
+Reports/Screenshots/*
 
 # Logs
 Logs/
 
 # Allure reports
-allure-results/
-allure-report/
+Reports/allure-results/
+Reports/allure-report/
 
 # Mac files
 .DS_Store
+
+# PyCharm IDE project settings (local machine specific)
+.idea/

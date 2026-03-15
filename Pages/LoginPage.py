@@ -24,59 +24,59 @@ class LoginPage(BasePage):
 
     """ Page Actions for Login Page """
 
-    """ Used to get the page title"""
+    """ Returns the login page title. """
     def get_login_page_title(self, title):
         return self.get_title(title)
 
-    """ Used to check the forgot password link"""
+    """ Return True if the forgot password link is visible. """
     def is_forgot_password_link_exist(self):
         return self.is_visible(self.Forgot_password_link)
 
-    """ Used to login the website"""
+    """ Log in to the application with valid credentials. """
     def do_login(self,username,password):
         self.do_send_keys(self.Username,username)
         self.do_send_keys(self.Password,password)
         self.do_click(self.Login_button)
         return HomePage(self.driver)
 
-    """ Used to get the error message"""
+    """ Return the login error message text. """
     def get_error_message(self):
         return self.get_element_text(self.Error_message)
 
-    """ Used to verify the logo """
+    """ Return True if the logo is visible. """
     def is_logo_exist(self):
         return self.is_visible(self.Logo_icon)
 
-    """ Used to verify the login button exist """
+    """ Return True if the login button is visible. """
     def is_login_button_exist(self):
         return self.is_visible(self.Login_button)
 
-    """ Used to verify the login button enabled """
+    """ Return True if the login button is enabled. """
     def is_login_button_enabled(self):
         element = self.driver.find_element(*self.Login_button)
         return element.is_enabled()
 
-    """ Used to verify the username field exist """
+    """" Return True if the username field is visible. """
     def is_username_field_exist(self):
         return self.is_visible(self.Username)
 
-    """ Used to verify the password field  exist """
+    """ Return True if the password field is visible. """
     def is_password_field_exist(self):
         return self.is_visible(self.Password)
 
-    """ Used to verify username_required  message exist"""
+    """ Return True if the username required message is visible. """
     def is_username_required_exist(self):
         return self.is_visible(self.Username_required)
 
-    """ Used to verify password_required  message exist"""
+    """ Return True if the password required message is visible. """
     def is_password_required_exist(self):
         return self.is_visible(self.Password_required)
 
-    """ Used to verify username_required_text message"""
+    """ Return the username required message text. """
     def get_username_required_text(self):
         return self.get_element_text(self.Username_required)
 
-    """ Used to verify password_required_text message"""
+    """ Return the password required message text. """
     def get_password_required_text(self):
         return self.get_element_text(self.Password_required)
 

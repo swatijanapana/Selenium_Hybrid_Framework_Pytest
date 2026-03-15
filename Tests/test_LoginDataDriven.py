@@ -4,12 +4,14 @@ from Pages.LoginPage import LoginPage
 from Utilities.excel_reader import get_login_data
 
 
-@pytest.mark.parametrize("scenario,username,password,expected", get_login_data())
-def test_login_from_excel(driver,scenario,username,password,expected):
+@pytest.mark.parametrize("scenario,username,password,expected,expected_message", get_login_data())
+def test_login_from_excel(driver,scenario,username,password,expected,expected_message):
+    """ Verify login behavior for multiple credential scenarios using Excel test data. """
     loginPage = LoginPage(driver)
 
     username = username or ""
     password = password or ""
+    expected_message = expected_message or ""
 
     homePage = loginPage.do_login(username, password)
 
@@ -20,9 +22,9 @@ def test_login_from_excel(driver,scenario,username,password,expected):
         # Blank fields -> field validation ("Required")
         if username == "" or password == "":
             if username == "":
-                assert loginPage.get_username_required_text() == "Required"
+                assert loginPage.get_username_required_text() == expected_message
             if password == "":
-                assert loginPage.get_password_required_text() == "Required"
+                assert loginPage.get_password_required_text() == expected_message
         else:
-            assert loginPage.get_error_message() == "Invalid credentials"
+            assert loginPage.get_error_message() == expected_message
 

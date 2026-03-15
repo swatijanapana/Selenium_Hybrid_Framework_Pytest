@@ -54,7 +54,7 @@ Utilities / Helpers
 │
 ├── Excel Reader
 ├── Config Reader
-└── Logger
+└── File Utils
 │
 ▼
 Selenium WebDriver
@@ -66,17 +66,20 @@ Browser (Chrome / Firefox / Edge)
 ## 📂 Project Structure
 
 ```
-Selenium_Pytest_Hybrid
+Selenium_Hybrid_Framework_Pytest
 │
 ├── Pages               # Page Object classes
 ├── Tests               # Test cases
-├── Utilities           # Helpers (Excel reader, config reader, logger)
+├── Utilities           # Helpers (Excel reader, config reader, file utils)
 ├── Constants           # UI text / default values
 ├── Config              # Configuration files
 ├── TestData            # Excel test data
+├── TestFiles           # Files used for upload testing
 ├── Reports             # Screenshots / Allure results
 ├── assets              # Images used in README
 ├── Tests/conftest.py   # Pytest fixtures
+├── requirements.txt    # Python dependencies
+├── .gitignore          # Ignored files for Git
 └── README.md
 ```
 
@@ -94,14 +97,36 @@ Features include:
 	•	Suite breakdown
 	•	Failure analysis
 
-# Running Tests:
+## 🔧 Installation
+
+Clone the repository
+```bash
+git clone https://github.com/swatij777/Selenium_Pytest_Hybrid.git
+cd Selenium_Pytest_Hybrid
+```
+Create and activate virtual environment
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## ▶️ Running Tests
 
 Run all tests
 ```bash
 pytest
 ```
-Run tests with Allure results
 
+Run parallel execution
+```bash
+pytest -n auto
+```
+
+Run tests with Allure results
 ```bash
 pytest --alluredir=Reports/allure-results
 ```

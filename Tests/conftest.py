@@ -16,6 +16,7 @@ def init_driver(request):
 
     request.cls.driver = web_driver
     web_driver.implicitly_wait(10)
+
     yield
     web_driver.quit()
 

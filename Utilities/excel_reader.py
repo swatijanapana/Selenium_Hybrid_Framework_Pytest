@@ -7,5 +7,10 @@ def get_login_data():
    data = []
 
    for row in ws.iter_rows(min_row=2, values_only=True):
-      data.append(row) # row = (scenario, username, password, expected)
+      row = list(row)
+
+      while len(row) < 5:
+         row.append("")
+
+      data.append(tuple(row[:5])) # row = (scenario, username, password, expected,expected_message)
    return  data

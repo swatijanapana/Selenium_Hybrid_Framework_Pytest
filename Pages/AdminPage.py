@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from Pages.BasePage import BasePage
-from selenium.webdriver.support.ui import Select
+
 
 
 class AdminPage(BasePage):
@@ -27,68 +27,63 @@ class AdminPage(BasePage):
     """ Page Actions for Admin Page """
 
     # User Management Tab
-    """ Used to check the User_management tab is selected by default """
 
+    """ Return True if the User_management tab is selected by default. """
     def is_user_management_tab_selected(self):
         return self.is_visible(self.User_management_tab)
 
-    """ Used to check the Add button exist """
-
+    """ Return True if the Add button is visible. """
     def is_add_button_exist(self):
         return self.is_visible(self.Add_button)
 
-    """ Used to check the Search button exist """
+    """ Return True if the Search button is visible. """
     def is_search_button_exist(self):
         return self.is_visible(self.Search_button)
 
-    """ Used to check the Reset button exist """
+    """ Return True if the Reset button is visible. """
     def is_reset_button_exist(self):
         return self.is_visible(self.Reset_button)
 
-
-    """ Used to input the Username """
+    """ Enter Username field value. """
     def enter_username(self,username):
         self.do_clear(self.Username_input)
         self.do_send_keys(self.Username_input,username)
 
-    """ Used to retrieve the value from Username field """
+    """ Return the Username field value. """
     def get_username_value(self):
         element = self.driver.find_element(*self.Username_input)
         return element.get_attribute("value")
 
-    """ Used to retrieve the value from User role dropdown """
-
+    """ Return the selected User role value. """
     def get_userrole_selected_text(self):
         element = self.driver.find_element(*self.User_role_dropdown)
         return element.text
 
-    """ Used to retrieve the value from Status  dropdown """
-
+    """ Return the selected status  value. """
     def get_status_selected_text(self):
         element = self.driver.find_element(*self.Status_dropdown)
         return element.text
 
-    """ Used to check entered  value in  Username field  appears in result table"""
-
+    """ Returns True if  entered Username value appears in result table. """
     def is_username_present_results(self,username):
-        table_text = self.driver.find_element(*self.Result_table).text
-        return username in table_text
+        locator = (By.XPATH, f"//div[contains(@class,'oxd-table-row')]//div[normalize-space()='{username}']")
+        elements = self.driver.find_elements(*locator)
+        return len(elements) > 0
 
-    """ Used to click the Search button"""
+
+    """ Click Search button. """
     def click_search_button(self):
         return self.do_click(self.Search_button)
 
-    """ Used to click the Reset button"""
+    """ Click Reset button."""
     def click_reset_button(self):
         return self.do_click(self.Reset_button)
 
-    """ Used to check the No record found message displayed or not """
-
+    """ Returns True if No record found message is displayed"""
     def is_no_record_found_message_displayed(self):
         return self.is_visible(self.No_Record_found_message)
 
-    """ Used to select item from dropdown"""
-
+    """ Select item from dropdown"""
     def select_from_dropdown(self,dropdown_locator,option_text):
         #click dropdown
         self.do_click(dropdown_locator)
@@ -96,10 +91,13 @@ class AdminPage(BasePage):
         option = (By.XPATH,f"//div[normalize-space()='{option_text}']")
         self.do_click(option)
 
-    """ Used to count the total rows in results table"""
+    """ Count the total rows in results table"""
     def get_row_result_count(self):
         rows = self.driver.find_elements(*self.Result_rows)
         return len(rows)
+
+
+
 
 
 
