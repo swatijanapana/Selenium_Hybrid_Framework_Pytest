@@ -5,7 +5,7 @@
 ![Selenium](https://img.shields.io/badge/Selenium-WebDriver-brightgreen)
 ![Allure](https://img.shields.io/badge/Reporting-Allure-orange)
 
-A scalable UI automation framework built using Python, Selenium, and Pytest following the Page Object Model (POM) design pattern with data-driven testing and Allure reporting.
+A scalable UI + API automation framework built using Python, Selenium, Pytest, and Requests following the Page Object Model (POM) design pattern with data-driven testing and Allure reporting.
 
 ## Table of Contents
 
@@ -42,6 +42,14 @@ A scalable UI automation framework built using Python, Selenium, and Pytest foll
 	•	Clean project structure
 	•	Pytest fixtures and parametrization
 
+## 🔗 API Testing
+
+    • Implemented API automation using Python requests and Pytest  
+    • Covered CRUD operations: GET, POST, PUT, DELETE  
+    • Validated status codes, response structure, and data integrity  
+    • Implemented positive and negative API test scenarios  
+    • Built reusable API client layer for scalable test design  
+
 ## Framework Architecture
 ```
 Tests (Pytest)
@@ -69,8 +77,8 @@ Browser (Chrome / Firefox / Edge)
 Selenium_Hybrid_Framework_Pytest
 │
 ├── Pages               # Page Object classes
-├── Tests               # Test cases
-├── Utilities           # Helpers (Excel reader, config reader, file utils)
+├── Tests               # Test cases (UI + API)
+├── Utilities           # Helpers (Excel reader, config reader, file utils, API client)
 ├── Constants           # UI text / default values
 ├── Config              # Configuration files
 ├── TestData            # Excel test data
@@ -145,15 +153,15 @@ allure serve Reports/allure-results
 	•	Reset filters verification
 	•	Dropdown selection validation
 
+ 
 
 ## 👩‍💻 Author
 
 Swati J – QA Analyst | Test Automation Engineer
-
 
 • 6+ years of experience in banking and financial services.
 • Designed and developed a Selenium Pytest automation framework. 
 • Implemented POM architecture, data-driven testing (Excel), and Allure reporting. 
 • Experienced in API validation, database testing, and cross-browser execution.
 
-⭐If you find this project useful, consider starring the repository or connecting with me on LinkedIn.
+⭐ If you find this project useful, consider starring the repository or connecting with me on LinkedIn.
