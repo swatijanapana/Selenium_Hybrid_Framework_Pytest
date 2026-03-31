@@ -1,23 +1,25 @@
+import pytest
+
 from Utilities.api_client import APIClient
 
 
-class Test_APIUsers():
+class Test_APIUsers:
 
     def setup_method(self):
         self.api_client = APIClient()
 
     def test_get_users_list(self):
-        """ Verify users API returns 200 and valid data. """
+        """Verify users API returns 200 and valid data."""
 
         url = "https://jsonplaceholder.typicode.com/users"
-        response = self.api_client.get(url)
 
+        response = self.api_client.get(url)
         assert response.status_code == 200
         response_json = response.json()
+
         assert len(response_json) > 0
         assert "id" in response_json[0]
         assert "email" in response_json[0]
-
 
 
     def test_create_user(self):
@@ -25,8 +27,7 @@ class Test_APIUsers():
 
         url = "https://jsonplaceholder.typicode.com/users"
 
-        payload = {"name": "Test",
-                   "email": "api@test.com"}
+        payload = {"name": "Test", "email": "api@test.com"}
 
         response = self.api_client.post(url, payload)
         assert response.status_code == 201
@@ -64,8 +65,7 @@ class Test_APIUsers():
 
         url = "https://jsonplaceholder.typicode.com/users/1"
 
-        payload = {"name": "Updated Test",
-                   "email": "updated_api@test.com"}
+        payload = {"name": "Updated Test", "email": "updated_api@test.com"}
 
         response = self.api_client.put(url, payload)
         assert response.status_code == 200
@@ -80,4 +80,27 @@ class Test_APIUsers():
 
         response = self.api_client.delete(url)
         assert response.status_code == 200
+
+
+    def test_unsupported_method(self):
+        """ Verify framework fails for unsupported HTTP method. """
+
+        api_client = APIClient()
+
+        method = "PATCH"
+        url = "https://jsonplaceholder.typicode.com/users"
+        payload = {"name": "Updated Test", "email": "updated_api@test.com"}
+
+        if method == "GET":
+            response = api_client.get(url)
+        elif method == "POST":
+            response = api_client.post(url, payload)
+        elif method == "PUT":
+            response = api_client.put(url, payload)
+        elif method == "DELETE":
+            response = api_client.delete(url)
+        else:
+            print(f"Unsupported method: {method}")
+            with pytest.raises(pytest.fail.Exception):
+             pytest.fail(f"Unsupported method: {method}")
 

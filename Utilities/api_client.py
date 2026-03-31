@@ -10,7 +10,8 @@ class APIClient:
         return requests.post(url, json=payload)
 
     def put(self,url,payload):
-        return requests.put(url, json= payload)
+        return requests.put(url, json=payload)
 
     def delete(self,url):
        return requests.delete(url)
+
