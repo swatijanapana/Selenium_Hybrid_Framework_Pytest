@@ -1,5 +1,5 @@
 import Constants.constants as constants
-from Tests.test_BasePage import BaseTest
+from Tests import BaseTest
 
 
 class Test_Home(BaseTest):

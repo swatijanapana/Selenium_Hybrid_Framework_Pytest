@@ -1,7 +1,7 @@
 import os.path
-from Tests.test_BasePage import BaseTest
+from Tests import BaseTest
 from Constants import constants as constants
-from TestData.testdata import MYINFO_TESTDATA, MYINFO_COMMENT_TESTDATA, MYINFO_CUSTOM_FIELD_TESTDATA
+from TestData.ui_test_data import MYINFO_TESTDATA, MYINFO_COMMENT_TESTDATA, MYINFO_CUSTOM_FIELD_TESTDATA
 from Utilities.file_utils import create_unique_file_copy
 
 

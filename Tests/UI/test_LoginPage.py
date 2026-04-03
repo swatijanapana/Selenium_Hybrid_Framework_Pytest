@@ -1,6 +1,6 @@
 import Constants.constants as constants
 from Pages.LoginPage import LoginPage
-from Tests.test_BasePage import BaseTest
+from Tests import BaseTest
 
 
 class  Test_Login(BaseTest):

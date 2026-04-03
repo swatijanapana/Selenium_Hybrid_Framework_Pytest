@@ -1,6 +1,6 @@
 from Constants import constants as constants
-from TestData.testdata import ADMIN_TESTDATA
-from Tests.test_BasePage import BaseTest
+from TestData.ui_test_data import ADMIN_TESTDATA
+from Tests import BaseTest
 
 class Test_Admin(BaseTest):
 
