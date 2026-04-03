@@ -1,4 +1,6 @@
 import os.path
+import time
+
 import pytest
 
 from Tests.UI.base_test import BaseTest
@@ -35,13 +37,22 @@ class Test_MyInfo(BaseTest):
    def test_personal_details_form(self):
         """ Verify Personal Details form can be updated successfully. """
         self.myinfoPage = self.open_myinfo_personal_details()
-        self.myinfoPage.fill_personal_details_form(MYINFO_TESTDATA)
+
+        Emp_id = str(int(time.time()))[-4:]
+        DL_num = f"DL{str(int(time.time()))[-4:]}"
+
+        data = MYINFO_TESTDATA.copy()
+        data["employee_id"] = Emp_id
+        data["driver_license_number"] = DL_num
+
+        self.myinfoPage.fill_personal_details_form(data)
         self.myinfoPage.click_save_button()
+
         actual = self.myinfoPage.get_personal_details_values()
         assert actual["first_name"] == MYINFO_TESTDATA["first_name"]
         assert actual["last_name"] == MYINFO_TESTDATA["last_name"]
-        assert actual["employee_id"] == MYINFO_TESTDATA["employee_id"]
-        assert actual["driver_license_number"] == MYINFO_TESTDATA["driver_license_number"]
+        assert actual["employee_id"] == Emp_id
+        assert actual["driver_license_number"] == DL_num
         assert actual["dl_expiry_date"] == MYINFO_TESTDATA["dl_expiry_date"]
         assert actual["nationality"] == MYINFO_TESTDATA["nationality"]
         assert actual["marital_status"] == MYINFO_TESTDATA["marital_status"]

@@ -1,3 +1,4 @@
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
@@ -23,7 +24,8 @@ class MyInfoPage(BasePage):
     Nationality_dropdown = (By.XPATH, "//label[text()='Nationality']/ancestor::div[contains(@class,'oxd-input-group')]//div[contains(@class,'oxd-select-wrapper')]")
     Marital_status_dropdown = (By.XPATH, "//label[text()='Marital Status']/ancestor::div[contains(@class,'oxd-input-group')]//div[contains(@class,'oxd-select-wrapper')]")
     DOB = (By.XPATH, "//label[text()= 'Date of Birth']/ancestor::div[contains(@class,'oxd-input-group')]//input")
-    Calendar_wrapper = (By.CLASS_NAME, "oxd-calendar-wrapper")
+    Calendar_popup = (By.CSS_SELECTOR, ".oxd-calendar-wrapper")
+    Calender_close_button = (By.CSS_SELECTOR,".oxd-date-input-link.--close")
     Gender_radio_input_male = (By.XPATH, "//input[@type='radio' and @value='1']")
     Gender_radio_input_female = (By.XPATH, "//input[@type='radio' and @value='2']")
 
@@ -105,8 +107,11 @@ class MyInfoPage(BasePage):
         element = self.driver.find_element(*calender_locator)
         element.send_keys(date_value)
         element.send_keys(Keys.TAB)
-        self.wait_for_calendar_to_close()
-        self.wait_for_element_clickable(calender_locator)
+        try:
+           self.wait_for_calendar_to_close()
+        except TimeoutException:
+           element.send_keys(Keys.ESCAPE)
+           self.wait_for_calendar_to_close()
 
     """ Select a date from DL Expiry date field. """
     def select_dl_exp_date(self,dl_exp_date_value):
@@ -120,10 +125,15 @@ class MyInfoPage(BasePage):
 
     """ Wait until the calender loader disappears. """
     def wait_for_calendar_to_close(self):
-        self.wait_for_loader_to_disappear(self.Calendar_wrapper)
+        self.wait_for_loader_to_disappear(self.Calendar_popup)
 
     """ Select a value from dropdown. """
     def select_from_dropdown(self,dropdown_locator,option_text):
+        try:
+            self.wait_for_calendar_to_close()
+        except TimeoutException:
+            self.driver.switch_to.active_element.send_keys(Keys.ESCAPE)
+            self.wait_for_calendar_to_close()
         self.do_click(dropdown_locator)
         option = (By.XPATH, f"//span[text()='{option_text}']")
         self.do_click(option)
@@ -189,9 +199,10 @@ class MyInfoPage(BasePage):
         self.enter_employee_id(data["employee_id"])
         self.enter_driver_license_number(data["driver_license_number"])
         self.select_dl_exp_date(data["dl_expiry_date"])
+        self.select_dob(data["dob"])
         self.select_nationality(data["nationality"])
         self.select_marital_status(data["marital_status"])
-        self.select_dob(data["dob"])
+
 
         if data["gender"].lower() == "male" :
             self.select_gender_male()
