@@ -1,13 +1,24 @@
 # Selenium Pytest Hybrid Automation Framework
 
+![Tests](https://img.shields.io/badge/Tests-140%2B-blue)
+![Pass Rate](https://img.shields.io/badge/Pass%20Rate-96%25-brightgreen)
+![UI/API](https://img.shields.io/badge/Coverage-UI%20%7C%20API%20%7C%20Integration-orange)
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
-![Pytest](https://img.shields.io/badge/Pytest-testing-green)
+![Pytest](https://img.shields.io/badge/Pytest-Framework-green)
 ![Selenium](https://img.shields.io/badge/Selenium-WebDriver-brightgreen)
 ![Allure](https://img.shields.io/badge/Reporting-Allure-orange)
 
 A scalable UI + API automation framework built using Python, Selenium, Pytest, and Requests following the Page Object Model (POM) design pattern with data-driven testing and Allure reporting.
 
-## Table of Contents
+## 📈 Key Metrics
+
+- 140+ automated test cases (UI + API + Integration)
+- ~96% pass rate across full suite execution
+- Cross-browser coverage: Chrome, Firefox, Edge
+- End-to-end validation: API → UI workflows
+- Data-driven testing using Excel
+
+## 📚 Table of Contents
 
 - Tech Stack
 - Framework Highlights
@@ -22,7 +33,7 @@ A scalable UI + API automation framework built using Python, Selenium, Pytest, a
 - Python 3.11
 - Selenium WebDriver
 - Pytest
-- Requests (API Testing)
+- Requests (API Automation)
 
 ### Framework Design:
 - Page Object Model (POM)
@@ -141,8 +152,8 @@ Features include:
 
 Clone the repository
 ```bash
-git clone https://github.com/swatijanapana/Selenium_Hybrid_Framework_Pytest.git
-cd Selenium_Hybrid_Framework_Pytest
+git clone https://github.com/swatijanapana/Selenium-pytest-hybrid-framework-ui-api.git
+cd Selenium-pytest-hybrid-framework-ui-api
 ```
 Create and activate virtual environment
 ```bash
