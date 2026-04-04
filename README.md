@@ -220,10 +220,10 @@ pytest -m integration -v -s
 
 ## 🚧 Future Enhancements
 
-- CI/CD integration (GitHub Actions / Jenkins)  
-- API schema validation  
-- Database validation  
-- Test retry mechanism for flaky tests  
+- CI/CD integration using GitHub Actions or Jenkins
+- API schema validation
+- Database validation
+- Retry mechanism for flaky tests 
  
 
 ## 👩‍💻 Author
