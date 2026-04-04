@@ -26,6 +26,7 @@ MYINFO_TESTDATA = {"first_name": "Richard",
                    "dob": "1995-02-02",
                    "gender": "Male"
                    }
+
 MYINFO_COMMENT_TESTDATA = {"comment_text": "file upload test"}
 MYINFO_CUSTOM_FIELD_TESTDATA = {"blood_type": "B+",
                                "test_field": "Tested"}
