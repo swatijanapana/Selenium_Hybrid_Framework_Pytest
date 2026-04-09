@@ -138,8 +138,7 @@ Selenium_Hybrid_Framework_Pytest
 
 The framework generates interactive test reports using Allure for both local and CI executions.
 
-### 🔗 Live Report (GitHub Pages)
-👉 https://swatijanapana.github.io/Selenium-pytest-hybrid-framework-ui-api/
+In CI,the latest Allure report is automatically published via GitHub Pages after each run.
 
 ### 📌 Report Features
 - Test execution summary
