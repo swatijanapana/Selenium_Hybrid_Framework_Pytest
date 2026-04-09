@@ -24,13 +24,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r  requirements.txt
+        run: python -m pip install --upgrade pip
+             pip install -r  requirements.txt
 
       - name: Run stable test suite
-        run: |
-          pytest -m "api or integration or smoke" -k "not firefox and not edge" -v --alluredir=Reports/allure-results
+        run: pytest -m "api or integration or smoke" -k "not firefox and not edge" -v --alluredir=Reports/allure-results
 
       - name: Upload Allure results
         if: always()
@@ -38,5 +36,13 @@ jobs:
         with:
           name: allure-results
           path: Reports/allure-results
+
+      - name: Install Allure
+        run: brew install allure
+
+      - name: Generate Allure report
+        if: always()
+        run: allure generate Reports/allure-results -o Reports/allure-report --clean
+        
 
 
