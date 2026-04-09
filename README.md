@@ -1,7 +1,7 @@
 # Selenium Pytest Hybrid Automation Framework
 
+[![CI](https://github.com/swatijanapana/Selenium-pytest-hybrid-framework-ui-api/actions/workflows/ci.yml/badge.svg)](https://github.com/swatijanapana/Selenium-pytest-hybrid-framework-ui-api/actions/workflows/ci.yml)
 ![Tests](https://img.shields.io/badge/Tests-140%2B-blue)
-![Pass Rate](https://img.shields.io/badge/Pass%20Rate-96%25-brightgreen)
 ![UI/API](https://img.shields.io/badge/Coverage-UI%20%7C%20API%20%7C%20Integration-orange)
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![Pytest](https://img.shields.io/badge/Pytest-Framework-green)
@@ -10,10 +10,15 @@
 
 A scalable UI + API automation framework built using Python, Selenium, Pytest, and Requests following the Page Object Model (POM) design pattern with data-driven testing and Allure reporting.
 
+## 🔗 Live Demo
+
+- 📊 Allure Report: https://swatijanapana.github.io/Selenium-pytest-hybrid-framework-ui-api/
+- ⚙️ CI Pipeline: https://github.com/swatijanapana/Selenium-pytest-hybrid-framework-ui-api/actions
+
 ## 📈 Key Metrics
 
 - 140+ automated test cases (UI + API + Integration)
-- ~98.5% pass rate across full suite execution
+- Achieved high pass rate across 140+ test cases
 - Cross-browser coverage: Chrome, Firefox, Edge
 - End-to-end validation: API → UI workflows
 - Data-driven testing using Excel
@@ -46,32 +51,32 @@ A scalable UI + API automation framework built using Python, Selenium, Pytest, a
 - Cross Browser Testing (Chrome, Firefox, Edge)
 
 ##  🚀 Framework Highlights
-	•	Page Object Model (POM) architecture
-	•	Data-driven testing using Excel
-	•	Cross-browser execution (Chrome, Firefox, Edge)
-	•	Allure reporting with test analytics
-	•	Screenshot capture during test execution
-	•	Clean and modular project structure 
-	•	Pytest fixtures and parametrization
+-  Page Object Model (POM) architecture
+-  Data-driven testing using Excel
+-  Cross-browser execution (Chrome, Firefox, Edge)
+-  Allure reporting with test analytics
+-  Screenshot capture during test execution
+-  Clean and modular project structure 
+-  Pytest fixtures and parametrization
 
 ## 🔗 API Testing Capabilities
 
-    • Implemented API automation using Python requests and Pytest  
-    • CRUD operations: GET, POST, PUT, DELETE  
-    • Validated status codes, response structure, and data integrity  
-    • Implemented positive and negative API test scenarios
-    • Built reusable API client layer for scalable test design
-    • Dynamic test data generation (avoids duplicate failures)
-    • API + UI workflow validation (integration tests)
+-  Implemented API automation using Python requests and Pytest  
+-  CRUD operations: GET, POST, PUT, DELETE  
+-  Validated status codes, response structure, and data integrity  
+-  Implemented positive and negative API test scenarios
+-  Built reusable API client layer for scalable test design
+-  Dynamic test data generation (avoids duplicate failures)
+-  API + UI workflow validation (integration tests)
 
 ## 🔄 Integration Testing (Key Differentiator)
 
 This framework supports end-to-end flows:
 
 👉 Example:
-	1.	Create user via API
-	2.	Login via UI using same credentials
-	3.	Validate user session
+1.	Create user via API
+2.	Login via UI using same credentials
+3.	Validate user session
 
 ## 🏗️ Framework Architecture
 ```
@@ -103,6 +108,9 @@ Browser (Chrome / Firefox / Edge)
 ```
 Selenium_Hybrid_Framework_Pytest
 │
+├── .github
+│   └── workflows
+│       └── ci.yml      # GitHub Actions CI pipeline
 ├── Pages               # Page Object classes
 ├── Tests
 │   ├── API                 # API test cases
@@ -128,17 +136,25 @@ Selenium_Hybrid_Framework_Pytest
 
 ![Allure Report](assets/allure-report.png)
 
-The framework generates interactive test reports using Allure.
+The framework generates interactive test reports using Allure for both local and CI executions.
 
-Features include:
+### 🔗 Live Report (GitHub Pages)
+👉 https://swatijanapana.github.io/Selenium-pytest-hybrid-framework-ui-api/
 
-	- Test execution summary
-	- Pass / Fail statistics
-    - Test timeline
-    - Suite breakdown
-    - Failure analysis
+### 📌 Report Features
+- Test execution summary
+- Pass / Fail statistics
+- Test timeline
+- Suite-level breakdown
+- Failure analysis with logs
 
-  ✔️ Achieved ~98.5% pass rate across 140+ test cases with UI, API, and integration coverage
+✔ Achieved high pass rate across 140+ test cases covering UI, API, and integration flows
+
+
+### ⚙️ CI Integration
+- Tests run automatically via GitHub Actions
+- Allure results are generated during CI execution
+- HTML report is published and hosted using GitHub Pages
 
 ## 🧪 Test Categorization (Pytest Markers)
     
@@ -211,16 +227,16 @@ pytest -m integration -v -s
 
 ## 🧪 Example Test Scenarios
 
-	•	Login with valid credentials
-	•	Login with invalid credentials
-	•	Login with blank username/password
-	•	Admin search functionality
-	•	Reset filters verification
-	•	Dropdown selection validation
+- Login with valid credentials
+- Login with invalid credentials
+- Login with blank username/password
+- Admin search functionality
+- Reset filters verification
+- Dropdown selection validation
 
 ## 🚧 Future Enhancements
 	
-	•   CI/CD integration using GitHub Actions or Jenkins
+	•   Enhance CI pipeline with parallel execution and reporting optimizations
     •   API schema validation
     •   Database validation
     •   Retry mechanism for flaky tests 
