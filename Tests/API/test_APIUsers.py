@@ -1,8 +1,7 @@
 import pytest
-
 from Utilities.api_client import APIClient
 
-
+@pytest.mark.api
 class Test_APIUsers:
 
     def setup_method(self):
@@ -21,7 +20,7 @@ class Test_APIUsers:
         assert "id" in response_json[0]
         assert "email" in response_json[0]
 
-
+    @pytest.mark.smoke
     def test_create_user(self):
         """ Verify user can be created through POST API. """
 

@@ -14,6 +14,7 @@ class Test_Home(BaseTest):
         """ Log in and navigate to Home page. """
         return self.login_and_get_home()
 
+    @pytest.mark.smoke
     def test_home_page_title(self):
         """Verify home page title is displayed correctly."""
         homePage = self.get_home_page()
@@ -53,7 +54,7 @@ class Test_Home(BaseTest):
         self.homePage = self.get_home_page()
         self.homePage.click_admin_menu()
         assert self.homePage.get_header_value() == constants.ADMIN_PAGE_HEADER_VALUE
-
+    @pytest.mark.smoke
     def test_click_myinfo_menu(self):
         """ Verify MyInfo menu navigation works correctly. """
         self.homePage = self.get_home_page()

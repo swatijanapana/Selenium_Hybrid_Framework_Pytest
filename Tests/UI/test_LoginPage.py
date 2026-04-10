@@ -10,7 +10,7 @@ class  Test_Login(BaseTest):
 
     """ Login Page test cases. """
 
-
+    @pytest.mark.smoke
     def test_environment_health_check(self):
         """ Verify login page core elements are visible. """
         self.loginPage = LoginPage(self.driver)

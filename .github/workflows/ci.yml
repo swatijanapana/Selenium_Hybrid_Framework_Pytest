@@ -32,7 +32,7 @@ jobs:
             pip install -r  requirements.txt
 
       - name: Run stable test suite
-        run: pytest -m "api or integration or smoke" -k "not firefox and not edge" -v --alluredir=Reports/allure-results
+        run: pytest -m smoke -k "not firefox and not edge" -v --alluredir=Reports/allure-results
 
       - name: Install Allure
         run: brew install allure

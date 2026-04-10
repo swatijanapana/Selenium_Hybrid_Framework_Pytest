@@ -1,17 +1,17 @@
 import time
 import pytest
-
 from Pages.LoginAPIPage import APILoginPage
 from TestData.api_test_data import get_api_user_payload
 from Utilities.api_client import APIClient
 from Utilities.config_reader import get_config
+
 
 @pytest.mark.integration
 class Test_API_UI_Intergration:
 
     def setup_method(self):
         self.api_client = APIClient()
-
+    @pytest.mark.smoke
     def test_create_account_and_login(self,driver):
 
         config = get_config()
