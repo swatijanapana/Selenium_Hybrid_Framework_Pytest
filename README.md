@@ -146,6 +146,7 @@ In CI,the latest Allure report is automatically published via GitHub Pages after
 - Test timeline
 - Suite-level breakdown
 - Failure analysis with logs
+- Automatic screenshot capture on test failure
 
 ✔ Achieved high pass rate across 140+ test cases covering UI, API, and integration flows
 
